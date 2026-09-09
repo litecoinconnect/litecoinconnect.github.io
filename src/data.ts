@@ -42,20 +42,20 @@ export const DONATION_ADDRESS = 'ltc1qpclak24j5rh8c2592y5j7y69q6lj8ap8xata3v'
 
 export const MIN_ANDROID = 'Android 8.0'
 
-/** Named from the app's own build files, not from a marketing list. */
+/**
+ * Named from the app's own build files.
+ *
+ * The design this page follows listed "Flutter" and "Litecoin RPC". The wallet
+ * is Kotlin and Compose, and it reaches the chain over the Electrum protocol
+ * and Blockbook. A stack list that names the wrong language is the one kind of
+ * detail a reader can check in seconds.
+ */
 export const TECHNOLOGIES = [
-  'Kotlin',
-  'Jetpack Compose',
-  'Material 3',
-  'Electrum protocol',
-  'Blockbook',
-  'secp256k1',
-  'BIP-32/39',
-  'BIP-44/49/84',
-  'bech32',
-  'Argon2id + AES-256-GCM',
-  'Android Keystore',
-  'Biometric Auth',
+  { icon: 'code', label: 'Kotlin & Compose' },
+  { icon: 'litecoin', label: 'Electrum + Blockbook' },
+  { icon: 'fingerprint', label: 'Biometric Auth' },
+  { icon: 'database', label: 'Secure Local Storage' },
+  { icon: 'lock', label: 'Argon2id + AES-256-GCM' },
 ]
 
 export const FEATURES = [
@@ -67,16 +67,18 @@ export const FEATURES = [
   {
     icon: 'chart',
     title: 'Analytics',
+    // Never "average buy price": a wallet cannot tell a purchase from a
+    // payment, a refund or a gift, which is why the app does not claim to.
     body: 'Every movement valued at the market price of the day it happened, with the amount-weighted average of what arrived.',
   },
   {
     icon: 'key',
     title: 'Keys stay on device',
-    body: 'The phrase is generated here and sealed under an Android Keystore master key. It is never uploaded in readable form.',
+    body: 'Generated on your phone and sealed under an Android Keystore master key. Never uploaded in readable form.',
   },
   {
     icon: 'layers',
     title: 'Three address types',
-    body: 'Native SegWit, wrapped SegWit and legacy, all derived from one recovery phrase, switchable per account.',
+    body: 'Native SegWit, wrapped SegWit and legacy, all from one recovery phrase, switchable per account.',
   },
 ]

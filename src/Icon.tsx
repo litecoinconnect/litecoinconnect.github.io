@@ -11,6 +11,10 @@ export type IconName =
   | 'arrow'
   | 'chart'
   | 'code'
+  | 'copy'
+  | 'database'
+  | 'heart'
+  | 'litecoin'
   | 'download'
   | 'fingerprint'
   | 'github'
@@ -37,6 +41,33 @@ const PATHS: Record<IconName, ReactElement> = {
     </>
   ),
   code: <path d="m16 18 6-6-6-6M8 6l-6 6 6 6" />,
+  copy: (
+    <>
+      <rect x="9" y="9" width="12" height="12" rx="2" />
+      <path d="M6 15H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v1" />
+    </>
+  ),
+  database: (
+    <>
+      <ellipse cx="12" cy="6" rx="8" ry="3" />
+      <path d="M4 6v6c0 1.7 3.6 3 8 3s8-1.3 8-3V6" />
+      <path d="M4 12v6c0 1.7 3.6 3 8 3s8-1.3 8-3v-6" />
+    </>
+  ),
+  heart: (
+    <path
+      d="M12 21s-7.5-4.7-9.3-9A5.2 5.2 0 0 1 12 6.6 5.2 5.2 0 0 1 21.3 12c-1.8 4.3-9.3 9-9.3 9Z"
+      fill="currentColor"
+      stroke="none"
+    />
+  ),
+  litecoin: (
+    <path
+      d="M12 1.4a10.6 10.6 0 1 0 0 21.2 10.6 10.6 0 0 0 0-21.2Zm.18 10.55-1.1 3.72h5.9a.3.3 0 0 1 .3.38l-.51 1.77a.4.4 0 0 1-.39.28H7.35l1.51-5.16-1.69.51.38-1.2 1.7-.51 2.12-7.23a.4.4 0 0 1 .39-.29h2.28a.3.3 0 0 1 .3.39l-1.79 6.1 1.69-.51-.36 1.23-1.7.52Z"
+      fill="currentColor"
+      stroke="none"
+    />
+  ),
   download: <path d="M12 3v12m0 0 4-4m-4 4-4-4M3 17v2a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-2" />,
   fingerprint: (
     <>
