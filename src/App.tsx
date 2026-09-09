@@ -28,6 +28,14 @@ function useCopy() {
   return { copied, copy }
 }
 
+/**
+ * Assets resolved against the deployment's base path.
+ *
+ * A bare "/phones.webp" is correct on Vercel and a 404 on GitHub Pages, which
+ * serves the site from a subdirectory. BASE_URL is whatever the build was told.
+ */
+const asset = (file: string) => `${import.meta.env.BASE_URL}${file}`
+
 const SHORT_ADDRESS = `${DONATION_ADDRESS.slice(0, 6)}…${DONATION_ADDRESS.slice(-4)}`
 
 export default function App() {
@@ -111,7 +119,7 @@ export default function App() {
 
             <div className="hero-art">
               <img
-                src="/phones.webp"
+                src={asset("phones.webp")}
                 alt="LiteConnect running on two phones"
                 width={1053}
                 height={1393}
@@ -185,7 +193,7 @@ export default function App() {
             <h3 className="card-title">Meet the developer</h3>
             <div className="dev-grid">
               <div className="dev-main">
-                <img className="avatar" src="/developer.webp" alt={DEVELOPER.name} />
+                <img className="avatar" src={asset("developer.webp")} alt={DEVELOPER.name} />
                 <div className="dev-body">
                   <h4>{DEVELOPER.name}</h4>
                   <p className="muted">{DEVELOPER.role}</p>
