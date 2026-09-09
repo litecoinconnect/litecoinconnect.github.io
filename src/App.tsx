@@ -121,8 +121,8 @@ export default function App() {
               <img
                 src={asset("phones.webp")}
                 alt="LiteConnect running on two phones"
-                width={1053}
-                height={1393}
+                width={1100}
+                height={1073}
               />
             </div>
           </div>
@@ -348,8 +348,8 @@ export default function App() {
 
       <p className="shell legalese">
         {APK_SIZE} &middot; {MIN_ANDROID} or later &middot; MIT licence &middot; not
-        affiliated with the Litecoin Foundation. The phones above are a design
-        render, not screenshots of this build.
+        affiliated with the Litecoin Foundation. Device renders; the balances
+        shown in them are illustrative.
       </p>
     </div>
   )
