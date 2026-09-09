@@ -1,9 +1,20 @@
-# liteconnect-web
+# litecoinconnect.github.io
 
 Landing page for [LiteConnect](https://github.com/litecoinconnect/liteconnect),
 a self-custody Litecoin wallet for Android.
 
-Vite + React + TypeScript. Deployed on Vercel.
+Vite + React + TypeScript.
+
+## Where it lives
+
+- **https://litecoinconnect.github.io** — GitHub Pages, built and deployed by
+  [the workflow](.github/workflows/deploy.yml) on every push to `main`.
+- Vercel, from the same source.
+
+The repository is named after the account, which is what makes Pages serve it
+at the root of the domain instead of from a subdirectory. Rename it and the
+build needs `PAGES_BASE` set again, or every asset 404s — see
+[`vite.config.ts`](vite.config.ts).
 
 ```
 npm install

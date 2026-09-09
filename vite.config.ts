@@ -2,12 +2,12 @@ import react from '@vitejs/plugin-react'
 import { defineConfig } from 'vite'
 
 /**
- * The base path differs by host, so it is decided at build time.
+ * Both hosts serve this from the root of a domain, so the base is "/".
  *
- * Vercel serves this at the root of a domain. GitHub Pages serves it under
- * /liteconnect-web/, because that is the repository name — and every absolute
- * asset path silently 404s there unless the bundle is told. The workflow sets
- * PAGES_BASE; anywhere else, root.
+ * The override stays because it was needed once and could be again: Pages
+ * serves any repository other than <account>.github.io from a subdirectory,
+ * where every absolute asset path silently 404s. Setting PAGES_BASE at build
+ * time is all it takes to move back.
  */
 export default defineConfig({
   plugins: [react()],

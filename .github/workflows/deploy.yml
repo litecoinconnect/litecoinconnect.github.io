@@ -1,8 +1,9 @@
 # Builds the site and publishes it to GitHub Pages.
 #
-# PAGES_BASE is what makes the bundle work from a subdirectory: Pages serves
-# this repository at /liteconnect-web/, and without it every asset is a 404.
-# Vercel builds the same source without that variable and gets root paths.
+# The repository is named after the account, so Pages serves it at the root of
+# litecoinconnect.github.io rather than from a subdirectory - the same shape
+# Vercel gives it. No base path override is needed on either host; the
+# machinery for one is kept in vite.config.ts in case that ever changes.
 name: Deploy to GitHub Pages
 
 on:
@@ -35,8 +36,6 @@ jobs:
       - run: npm ci
 
       - run: npm run build
-        env:
-          PAGES_BASE: /liteconnect-web/
 
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3
