@@ -351,6 +351,7 @@ export default function App() {
           <a href={RELEASE_URL} target="_blank" rel="noreferrer">
             Releases
           </a>
+          <a href="./privacy.html">Privacy</a>
           <a href={REPO} target="_blank" rel="noreferrer">
             GitHub
           </a>

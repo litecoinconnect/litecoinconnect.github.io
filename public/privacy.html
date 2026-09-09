@@ -1,0 +1,208 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Privacy Policy — LiteConnect</title>
+<link rel="icon" href="./favicon.svg" type="image/svg+xml">
+<style>
+  :root {
+    --ink: #111113; --soft: #4b4b52; --faint: #85858e;
+    --bg: #f2f2f2; --card: #fff; --line: #e6e6e6;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root { --ink:#f4f4f6; --soft:#b3b3bb; --faint:#83838c; --bg:#0b0b0d; --card:#141418; --line:#26262b; }
+  }
+  * { box-sizing: border-box }
+  body {
+    margin: 0; background: var(--bg); color: var(--ink); line-height: 1.6;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Inter, Roboto, Helvetica, Arial, sans-serif;
+    font-size: 16px;
+  }
+  main { max-width: 760px; margin: 0 auto; padding: 56px 24px 80px }
+  a { color: inherit }
+  h1 { font-size: 2rem; letter-spacing: -0.02em; margin: 0 0 6px }
+  h2 { font-size: 1.15rem; margin: 40px 0 10px; letter-spacing: -0.01em }
+  h3 { font-size: 1rem; margin: 24px 0 6px }
+  .updated { color: var(--faint); font-size: .9rem; margin: 0 0 32px }
+  .lead { font-size: 1.05rem; color: var(--soft) }
+  table { width: 100%; border-collapse: collapse; margin: 14px 0; font-size: .93rem }
+  th, td { text-align: left; padding: 10px 12px; border-bottom: 1px solid var(--line); vertical-align: top }
+  th { color: var(--faint); font-weight: 600; font-size: .8rem; text-transform: uppercase; letter-spacing: .05em }
+  .box { background: var(--card); border: 1px solid var(--line); border-radius: 14px; padding: 18px 20px; margin: 20px 0 }
+  code { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size: .88em }
+  ul { padding-left: 20px } li { margin: 6px 0 }
+  footer { margin-top: 56px; padding-top: 20px; border-top: 1px solid var(--line); color: var(--faint); font-size: .88rem }
+</style>
+</head>
+<body>
+<main>
+
+<h1>Privacy Policy</h1>
+<p class="updated">LiteConnect · Last updated 9 September 2026</p>
+
+<p class="lead">
+  LiteConnect does not have user accounts, does not run analytics, and does not
+  collect anything about you by default. This document says exactly what leaves
+  your phone, when, and to whom — including the parts that are unavoidable in
+  any wallet that talks to a blockchain.
+</p>
+
+<div class="box">
+  <strong>The short version.</strong> Your recovery phrase and private keys are
+  generated on your device and never leave it in readable form. There is no
+  analytics SDK, no crash reporter, no advertising and no tracking of any kind
+  in this app. Two things do leave your phone: your public addresses, which any
+  wallet must send to a blockchain server to learn your balance, and — only if
+  you choose it — an encrypted backup that nobody but you can open.
+</div>
+
+<h2>1. What we never collect</h2>
+<ul>
+  <li>Your recovery phrase, private keys or PIN. These are generated on the
+      device and stored in Android's <code>EncryptedSharedPreferences</code>
+      under a master key held in the Android Keystore. They are never
+      transmitted in readable form, to us or to anyone.</li>
+  <li>Your biometric data. Fingerprint and face authentication are handled
+      entirely by Android; the app is only told whether authentication
+      succeeded.</li>
+  <li>Analytics, usage statistics, device identifiers, advertising IDs or crash
+      reports. No such library is present in the application.</li>
+  <li>Your name, phone number, address or contacts.</li>
+</ul>
+
+<h2>2. What necessarily leaves your device</h2>
+
+<h3>Blockchain queries</h3>
+<p>
+  To show your balance and transaction history, the app sends your
+  <strong>public addresses</strong> to Litecoin blockchain servers (Blockbook
+  instances and servers speaking the Electrum protocol). This is how every
+  non-custodial wallet works: a balance cannot be known without asking the
+  network about the addresses that hold it.
+</p>
+<p>
+  Those servers are operated by third parties, not by us. They can see the
+  addresses you ask about and the IP address you ask from, and could in
+  principle associate them. We do not run these servers and do not receive that
+  data. If this matters to you, route the app through a VPN or Tor.
+</p>
+
+<h3>Market prices</h3>
+<p>
+  The app requests the Litecoin price from public market-data APIs (Binance,
+  CoinGecko, CoinPaprika). These requests contain no information about you, your
+  wallet or your balance — only a request for a public price. Your IP address is
+  visible to those services, as it is to any website you open.
+</p>
+
+<h2>3. Optional features you have to turn on</h2>
+
+<h3>Google sign-in and encrypted cloud backup</h3>
+<p>
+  The wallet works fully without this. If you choose it, the following is stored
+  under your Google account identifier in Google Firebase:
+</p>
+<table>
+  <tr><th>Stored</th><th>Form</th><th>Why</th></tr>
+  <tr>
+    <td>Recovery phrase</td>
+    <td><strong>Encrypted</strong> — Argon2id key derivation, AES-256-GCM, using a password you choose</td>
+    <td>So you can restore your wallet on a new device</td>
+  </tr>
+  <tr>
+    <td>One receiving address</td>
+    <td>Plain text</td>
+    <td>So the app can show you which wallet is about to be restored, before you type your password</td>
+  </tr>
+  <tr>
+    <td>Address type and network</td>
+    <td>Plain text</td>
+    <td>To restore the wallet with the same settings</td>
+  </tr>
+  <tr>
+    <td>Email address and account ID</td>
+    <td>Provided by Google Sign-In</td>
+    <td>To identify which backup is yours</td>
+  </tr>
+</table>
+<p>
+  <strong>The encryption happens on your device before anything is uploaded.</strong>
+  The password is never transmitted and is not recoverable — not by us, not by
+  Google, not by anyone. If you lose it, that backup can never be opened again.
+</p>
+<div class="box">
+  <strong>What a stolen Google account would expose.</strong> Someone with
+  access to your Google account could see the single receiving address stored
+  above, and could therefore look up that address's balance and history on any
+  public block explorer. They could <em>not</em> decrypt your recovery phrase or
+  spend your coins without your backup password. We deliberately do not store
+  your account's extended public key, which would have exposed every address you
+  ever use rather than one.
+</div>
+<p>
+  You can delete this backup at any time from within the app, which removes the
+  record entirely.
+</p>
+
+<h3>Camera</h3>
+<p>
+  The camera permission is used for one purpose: scanning QR codes containing
+  Litecoin addresses. Images are processed on the device in real time and are
+  never stored, uploaded or retained. The permission is requested only when you
+  open the scanner, and the wallet works without granting it.
+</p>
+
+<h3>Notifications</h3>
+<p>
+  Used only for local alerts about your own wallet activity. No push service
+  receives your data.
+</p>
+
+<h2>4. Children</h2>
+<p>
+  LiteConnect is not directed at children under 13 and does not knowingly
+  collect information from them.
+</p>
+
+<h2>5. Your control</h2>
+<ul>
+  <li><strong>Uninstalling</strong> the app removes all local data, including
+      your encrypted keys. Make sure you have written down your recovery phrase
+      first — without it, uninstalling means the coins are unreachable forever.</li>
+  <li><strong>Deleting your cloud backup</strong> from within the app removes
+      the stored record.</li>
+  <li>Because the wallet is non-custodial, there is no account for us to close
+      and no balance for us to return. We never had it.</li>
+</ul>
+
+<h2>6. Changes</h2>
+<p>
+  If this policy changes, the revised version is published here with a new date,
+  and the change is recorded in the public commit history of the website's
+  repository, so any edit can be seen and dated by anyone.
+</p>
+
+<h2>7. Verifying all of this</h2>
+<p>
+  You do not have to take our word for any of the above. LiteConnect is open
+  source under the MIT licence: every network request, every stored field and
+  every use of the camera can be read in the source at
+  <a href="https://github.com/litecoinconnect/liteconnect">github.com/litecoinconnect/liteconnect</a>.
+</p>
+
+<h2>8. Contact</h2>
+<p>
+  Questions about this policy, or about anything the app does, can be raised at
+  <a href="https://github.com/litecoinconnect/liteconnect/issues">github.com/litecoinconnect/liteconnect/issues</a>.
+</p>
+
+<footer>
+  LiteConnect · <a href="./">Home</a> ·
+  <a href="https://github.com/litecoinconnect/liteconnect">Source</a> ·
+  MIT licence · Not affiliated with the Litecoin Foundation.
+</footer>
+
+</main>
+</body>
+</html>
