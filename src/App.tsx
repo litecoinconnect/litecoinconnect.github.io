@@ -121,8 +121,8 @@ export default function App() {
               <img
                 src={asset("phones.webp")}
                 alt="LiteConnect running on two phones"
-                width={1100}
-                height={1073}
+                width={1162}
+                height={1134}
               />
             </div>
           </div>

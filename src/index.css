@@ -168,7 +168,12 @@ h1 {
 .prerelease strong { color: var(--ink); }
 
 .hero-art { display: flex; justify-content: center; }
-.hero-art img { width: 100%; max-width: 560px; height: auto; display: block; }
+/* Capped at 520px on purpose.
+   The source render is 1162px wide, so at 560px it was being enlarged on any
+   2x display - 1120px of demand against 1162px of supply left no headroom and
+   the whole thing read as soft. At 520 the browser downsamples instead, which
+   is the direction that looks sharp. */
+.hero-art img { width: 100%; max-width: 520px; height: auto; display: block; }
 
 /* ---- Assurance strip --------------------------------------------- */
 .strip {
