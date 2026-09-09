@@ -57,6 +57,7 @@ export default function App() {
             </a>
           </nav>
           <a className="btn btn-dark btn-sm" href={DOWNLOAD_URL}>
+            <Icon name="android" />
             Download
           </a>
         </div>
@@ -91,13 +92,26 @@ export default function App() {
                   View on GitHub
                 </a>
                 <a className="btn btn-soft" href={DOWNLOAD_URL}>
-                  <Icon name="download" />
-                  Download wallet
+                  <Icon name="android" />
+                  Download for Android
                 </a>
+
+                {/*
+                  A label, not a button. Drawn without hover, without a cursor
+                  and outside the tab order, because a control that looks
+                  pressable and does nothing is worse than no control: someone
+                  on an iPhone clicks it, nothing happens, and they leave
+                  wondering whether the page is broken.
+                */}
+                <span className="soon" aria-label="iOS version not available yet">
+                  <Icon name="apple" />
+                  iOS — coming soon
+                </span>
               </div>
 
               <p className="fineprint">
-                Free <i /> Open source <i /> Community driven
+                Free <i /> Open source <i /> APK, {MIN_ANDROID} or later
+                <i /> {APK_SIZE}
               </p>
 
               {/*
@@ -318,8 +332,8 @@ export default function App() {
                 Open repository
               </a>
               <a className="btn btn-soft" href={DOWNLOAD_URL}>
-                Get started
-                <Icon name="arrow" />
+                <Icon name="android" />
+                Get the Android app
               </a>
             </div>
           </div>
@@ -347,9 +361,9 @@ export default function App() {
       </footer>
 
       <p className="shell legalese">
-        {APK_SIZE} &middot; {MIN_ANDROID} or later &middot; MIT licence &middot; not
-        affiliated with the Litecoin Foundation. Device renders; the balances
-        shown in them are illustrative.
+        Android only for now; the iOS build does not exist yet. MIT licence, not
+        the Litecoin Foundation. Device renders; the balances shown in them are
+        illustrative.
       </p>
     </div>
   )

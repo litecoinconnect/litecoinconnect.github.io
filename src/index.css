@@ -119,7 +119,22 @@ code {
 }
 /* Each term stays whole; the row wraps between them, not inside them. */
 .eyebrow { flex-wrap: wrap; }
-.eyebrow span, .fineprint { white-space: nowrap; }
+.eyebrow span, /* Deliberately not .btn: same height and rhythm, none of the affordances. */
+.soon {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  padding: 15px 22px;
+  border: 1px dashed var(--line);
+  border-radius: 12px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--ink-faint);
+  white-space: nowrap;
+  user-select: none;
+}
+
+.fineprint { white-space: nowrap; }
 .fineprint { flex-wrap: wrap; }
 
 .eyebrow i, .fineprint i {
